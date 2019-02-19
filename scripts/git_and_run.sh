@@ -16,7 +16,7 @@ while true; do
     esac
 done
 
-if [[ $branch ]]; then
+if [[ -v $branch ]]; then
     # First verify branch actually exists
     git rev-parse --verify $branch >/dev/null 2>/dev/null
     if [["$?" != 0 ]]; then
