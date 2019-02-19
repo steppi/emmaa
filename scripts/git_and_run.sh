@@ -18,7 +18,7 @@ done
 
 echo $branch
 
-if [[ -v $branch ]]; then
+if [ -v $branch ]; then
     # First verify branch actually exists
     echo "Attempting to change to branch $branch"
     git rev-parse --verify $branch >/dev/null 2>/dev/null
