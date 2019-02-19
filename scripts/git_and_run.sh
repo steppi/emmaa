@@ -16,6 +16,8 @@ while true; do
     esac
 done
 
+echo $branch
+
 if [[ -v $branch ]]; then
     # First verify branch actually exists
     echo "Attempting to change to branch $branch"
