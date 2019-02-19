@@ -6,9 +6,6 @@
 # dangerous is only intended to be run in temporary environments. It will overwrite
 # unstaged changes with git reset --hard
 
-TEMP=`getopt -o b: --long branch: -- "$@"`
-eval set -- "$TEMP"
-
 while true; do
     case "$1" in
 	-b | --branch)
@@ -34,4 +31,4 @@ if [[ $branch ]]; then
     git reset --hard $branch
 fi
 
-${@:$OPTIND+1}
+$@
