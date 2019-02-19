@@ -18,6 +18,7 @@ done
 
 if [[ -v $branch ]]; then
     # First verify branch actually exists
+    echo "Attempting to change to branch $branch"
     git rev-parse --verify $branch >/dev/null 2>/dev/null
     if [["$?" != 0 ]]; then
 	echo "Error: Branch $branch could not be found"
@@ -26,9 +27,12 @@ if [[ -v $branch ]]; then
     # If branch is remote we will need to fetch
     remote=$(basename $branch)
     if [[ $remote != "$branch" ]]; then
+	echo "Fetching from remote $remote"
 	git fetch $remote
     fi
+    echo "HEAD previously at " $(git rev-parse HEAD)
     git reset --hard $branch
+    echo "HEAD now at " $(git rev-parse HEAD)
 fi
 
 $@
