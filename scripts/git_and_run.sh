@@ -16,7 +16,6 @@ while true; do
     esac
 done
 
-echo $branch
 
 if ! [ -z "$branch" ]; then
     # First verify branch actually exists
@@ -34,7 +33,6 @@ if ! [ -z "$branch" ]; then
     fi
     echo "HEAD previously at " $(git rev-parse HEAD)
     git reset --hard $branch
-    echo "HEAD now at " $(git rev-parse HEAD)
 fi
 
 $@
